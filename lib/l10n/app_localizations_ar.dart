@@ -12,7 +12,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get language => 'اللغة';
 
   @override
-  String get english => 'الانجليزيه';
+  String get english => 'الانجليزية';
 
   @override
   String get arabic => 'العربية';
@@ -25,4 +25,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get light => 'نهاري';
+
+  @override
+  String get logout => 'تسجيل الخروج';
 }

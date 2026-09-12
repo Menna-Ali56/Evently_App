@@ -4,10 +4,6 @@ import 'app_colors.dart';
 import 'app_styles.dart';
 
 class AppTheme {
-  // =========================
-  // Light Theme
-  // =========================
-
   static final ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.lightBgColor,
 
@@ -59,8 +55,8 @@ class AppTheme {
     dividerColor: AppColors.mainLightColor,
 
     textTheme: TextTheme(
-      headlineLarge: AppStyles.semi20Black,
-      headlineMedium: AppStyles.medium16Black,
+      headlineLarge: AppStyles.semi20white,
+      headlineMedium: AppStyles.medium18White,
       bodyLarge: AppStyles.regular14whiteDarkColor,
       headlineSmall: AppStyles.semi24white,
       labelMedium: AppStyles.medium16MainDarkColor,
