@@ -1,5 +1,8 @@
+import 'package:evently_app/home/tabs/favorite/favorite_tab.dart';
+import 'package:evently_app/home/tabs/home/home_tab.dart';
 import 'package:evently_app/home/tabs/profile/profile_tab.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
+import 'package:evently_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,66 +13,58 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
+  List<Widget> tabList = [HomeTab(), FavoriteTab(), ProfileTab()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       // appBar: AppBar(
-       //   backgroundColor: Colors.teal,
-       //   title: Text(AppLocalizations.of(context)!.language),
-       // ),
-      body: profileTab(),
-      // Padding(
-      //   padding: const EdgeInsets.all(16.0),
-      //   child: Column(
-      //     crossAxisAlignment: CrossAxisAlignment.start,
-      //     children: [
-      //       Text(AppLocalizations.of(context)!.language),
-      //       InkWell(
-      //         onTap: () {
-      //           showLanguageBottomSheet( );
-      //           // Handle tap event
-      //         },
-      //         child: Container(
-      //           decoration:BoxDecoration(
-      //             borderRadius: BorderRadius.circular(16),
-      //
-      //             border: Border.all(
-      //               color:Colors.teal
-      //             )
-      //           ),
-      //           child: Row(
-      //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //             children: [
-      //               Text(AppLocalizations.of(context)!.english),
-      //               Icon(Icons.arrow_back_ios_new_outlined)
-      //             ],
-      //           ),
-      //
-      //         ),
-      //       )
-      //
-      //     ],
-      //   ),
-      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        items: [
+          _builtBottomNavigationBarItem(
+            selectedIcon: Icon(Icons.home),
+            unSelectedIcon: Icon(Icons.home_outlined),
+            label: AppLocalizations.of(context)!.home,
+            isSelected: selectedIndex == 0,
+          ),
+          _builtBottomNavigationBarItem(
+            selectedIcon: Icon(Icons.favorite),
+            unSelectedIcon: Icon(Icons.favorite_border),
+            label: AppLocalizations.of(context)!.favorite,
+            isSelected: selectedIndex == 1,
+          ),
+          _builtBottomNavigationBarItem(
+            selectedIcon: Icon(Icons.person),
+            unSelectedIcon: Icon(Icons.person_outline),
+            label: AppLocalizations.of(context)!.profile,
+            isSelected: selectedIndex == 2,
+          ),
+        ],
+      ),
+      body: tabList[selectedIndex],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          //todo:navigation to events
+        },
+        child: Icon(Icons.add,color:AppColors.whiteColor,size: 25,),
+      ),
     );
   }
 
-  void showLanguageBottomSheet(){
-    showModalBottomSheet(context: context, builder: (BuildContext context) {
-      return Container(
-        height: 200,
-        child: Column(
-          children: [
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.english),
-              onTap: () {
-                // Handle tap event
-              },
-            ),
-          ],
-        ),
-      );
-    });
+  BottomNavigationBarItem _builtBottomNavigationBarItem({
+    required Widget selectedIcon,
+    required Widget unSelectedIcon,
+    required String label,
+    required bool isSelected,
+  }) {
+    return BottomNavigationBarItem(
+      icon: isSelected ? selectedIcon : unSelectedIcon,
+      label: label,
+    );
   }
-  void showThemeBottomSheet(){}
 }

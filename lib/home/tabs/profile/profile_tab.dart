@@ -9,14 +9,14 @@ import 'package:provider/provider.dart';
 
 import 'language_bottom_Sheet.dart';
 
-class profileTab extends StatefulWidget {
-  const profileTab({super.key});
+class ProfileTab extends StatefulWidget {
+  const ProfileTab({super.key});
 
   @override
-  State<profileTab> createState() => _profileTabState();
+  State<ProfileTab> createState() => _ProfileTabState();
 }
 
-class _profileTabState extends State<profileTab> {
+class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
     var width = context.width;

@@ -14,7 +14,11 @@ class AppTheme {
       selectedLabelStyle: AppStyles.regular12MainLightColor,
       unselectedLabelStyle: AppStyles.regular12GreyColor,
     ),
-
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: AppColors.mainLightColor,
+      foregroundColor: AppColors.whiteColor,
+      shape: CircleBorder(),
+    ),
     cardColor: AppColors.mainLightColor,
 
     dividerColor: AppColors.strokeWhiteColor,
@@ -49,6 +53,11 @@ class AppTheme {
       selectedLabelStyle: AppStyles.regular12MainDarkColor,
       unselectedLabelStyle: AppStyles.regular12GreyColor,
     ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: AppColors.mainDarkColor,
+      foregroundColor: AppColors.whiteColor,
+      shape: CircleBorder(),
+    ),
 
     cardColor: AppColors.mainDarkColor,
 
@@ -56,7 +65,7 @@ class AppTheme {
 
     textTheme: TextTheme(
       headlineLarge: AppStyles.semi20white,
-      headlineMedium: AppStyles.medium18White,
+      headlineMedium: AppStyles.medium16White,
       bodyLarge: AppStyles.regular14whiteDarkColor,
       headlineSmall: AppStyles.semi24white,
       labelMedium: AppStyles.medium16MainDarkColor,
