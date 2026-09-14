@@ -16,8 +16,7 @@ import '../../widgets/custom_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
    LoginScreen({super.key});
-    var emailController=TextEditingController();
-    var passwordController=TextEditingController();
+
 
 
   @override
