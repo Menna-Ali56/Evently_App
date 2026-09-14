@@ -24,7 +24,13 @@
  "name": "Enter Your Name",
  "confirm_password": "Confirm Your Password",
  "already_have_an_account": "Already have an account?",
- "welcome_back": "Welcome Back",
- "welcome": "Welcome",
- "search": "Search"
+ "welcome_back": "Welcome Back ✨",
+ "welcome": "Welcome ",
+ "search": "Search",
+ "all": "All",
+ "sport": "Sport",
+ "birthday": "Birthday",
+ "bookclub": "Book Club",
+ "meeting": "Meeting",
+ "exhibition": "Exhibition"
 }

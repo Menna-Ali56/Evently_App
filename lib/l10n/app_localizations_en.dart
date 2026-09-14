@@ -84,11 +84,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get already_have_an_account => 'Already have an account?';
 
   @override
-  String get welcome_back => 'Welcome Back';
+  String get welcome_back => 'Welcome Back ✨';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Welcome ';
 
   @override
   String get search => 'Search';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get sport => 'Sport';
+
+  @override
+  String get birthday => 'Birthday';
+
+  @override
+  String get bookclub => 'Book Club';
+
+  @override
+  String get meeting => 'Meeting';
+
+  @override
+  String get exhibition => 'Exhibition';
 }

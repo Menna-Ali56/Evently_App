@@ -19,12 +19,18 @@
  "login_with_google": "تسجيل الدخول باستخدام جوجل",
  "sign_up_with_google": "إنشاء حساب باستخدام جوجل",
  "dont_have_an_account": "ليس لديك حساب؟",
+ "create_your_account": "إنشاء حسابك",
  "register": "تسجيل",
-
  "name": "أدخل اسمك",
  "confirm_password": "تأكيد كلمة المرور",
  "already_have_an_account": "هل لديك حساب؟",
- "welcome_back": "مرحبًا بعودتك",
+ "welcome_back": "مرحبًا بعودتك ✨",
  "welcome": "مرحبًا",
- "search": "بحث"
+ "search": "بحث",
+ "all": "الكل",
+ "sport": "رياضة",
+ "birthday": "عيد ميلاد",
+ "bookclub": "نادي الكتاب",
+ "meeting": "اجتماع",
+ "exhibition": "معرض"
 }
