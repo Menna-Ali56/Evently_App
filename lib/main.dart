@@ -1,11 +1,13 @@
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/providers/app_theme_provider.dart';
+import 'package:evently_app/register/register_screen.dart';
 import 'package:evently_app/utils/app_routes.dart';
 import 'package:evently_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'home/home_screen.dart';
 import 'l10n/app_localizations.dart';
+import 'login/login_screen.dart';
 
 void main() {
   runApp(
@@ -27,10 +29,11 @@ class MyApp extends StatelessWidget {
    var themeProvider=Provider.of<AppThemeProvider>(context) ;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.homeRouteName,
+      initialRoute: AppRoutes.loginRouteName,
       routes: {
-        AppRoutes.homeRouteName:(context)=>HomeScreen()
-
+        AppRoutes.homeRouteName:(context)=>HomeScreen(),
+        AppRoutes.loginRouteName:(context)=>LoginScreen(),
+        AppRoutes.registerRouteName:(context)=>RegisterScreen(),
       },
       locale: Locale(languageProvider.appLanguage),
       localizationsDelegates:AppLocalizations.localizationsDelegates,

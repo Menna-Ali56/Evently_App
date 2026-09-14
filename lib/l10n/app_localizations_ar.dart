@@ -37,4 +37,58 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get profile => 'الملف الشخصي';
+
+  @override
+  String get login_to_your_account => 'تسجيل الدخول إلى حسابك';
+
+  @override
+  String get email => 'أدخل بريدك الإلكتروني';
+
+  @override
+  String get password => 'أدخل كلمة المرور';
+
+  @override
+  String get login => 'تسجيل الدخول';
+
+  @override
+  String get forgetpassword => 'هل نسيت كلمة المرور؟';
+
+  @override
+  String get signup => 'إنشاء حساب';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get login_with_google => 'تسجيل الدخول باستخدام جوجل';
+
+  @override
+  String get sign_up_with_google => 'إنشاء حساب باستخدام جوجل';
+
+  @override
+  String get dont_have_an_account => 'ليس لديك حساب؟';
+
+  @override
+  String get create_your_account => 'Create Your Account';
+
+  @override
+  String get register => 'تسجيل';
+
+  @override
+  String get name => 'أدخل اسمك';
+
+  @override
+  String get confirm_password => 'تأكيد كلمة المرور';
+
+  @override
+  String get already_have_an_account => 'هل لديك حساب؟';
+
+  @override
+  String get welcome_back => 'مرحبًا بعودتك';
+
+  @override
+  String get welcome => 'مرحبًا';
+
+  @override
+  String get search => 'بحث';
 }
