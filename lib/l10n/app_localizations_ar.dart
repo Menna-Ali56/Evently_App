@@ -109,4 +109,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exhibition => 'معرض';
+
+  @override
+  String get search_events => 'ابحث عن الفعاليات';
 }

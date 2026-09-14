@@ -32,5 +32,6 @@
  "birthday": "Birthday",
  "bookclub": "Book Club",
  "meeting": "Meeting",
- "exhibition": "Exhibition"
+ "exhibition": "Exhibition",
+ "search_events": "Search For Events"
 }

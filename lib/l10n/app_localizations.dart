@@ -301,6 +301,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exhibition'**
   String get exhibition;
+
+  /// No description provided for @search_events.
+  ///
+  /// In en, this message translates to:
+  /// **'Search For Events'**
+  String get search_events;
 }
 
 class _AppLocalizationsDelegate
