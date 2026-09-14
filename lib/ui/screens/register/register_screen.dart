@@ -3,13 +3,15 @@ import 'package:evently_app/providers/app_theme_provider.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:evently_app/utils/size_utils.dart';
-import 'package:evently_app/widgets/custom_elevated_button.dart';
-import 'package:evently_app/widgets/custom_text_field.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../utils/app_colors.dart';
-import '../utils/app_routes.dart';
+import '../../../utils/app_colors.dart';
+import '../../../utils/app_routes.dart';
+import '../../widgets/custom_elevated_button.dart';
+import '../../widgets/custom_text_field.dart';
+
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});

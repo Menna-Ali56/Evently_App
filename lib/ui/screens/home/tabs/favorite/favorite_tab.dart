@@ -1,8 +1,9 @@
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/utils/size_utils.dart';
-import 'package:evently_app/widgets/custom_text_field.dart';
+
 import 'package:flutter/material.dart';
 
+import '../../../../widgets/custom_text_field.dart';
 import '../home/event_item_widget.dart';
 
 class FavoriteTab extends StatelessWidget {
@@ -21,7 +22,10 @@ class FavoriteTab extends StatelessWidget {
         child: Column(
           spacing: height*0.02,
           children: [
-            CustomTextField(borderColor: Theme.of(context).dividerColor,
+            CustomTextField(
+              filled: true,
+              fillColor: Theme.of(context).highlightColor,
+              borderColor: Theme.of(context).dividerColor,
             hintText: AppLocalizations.of(context)!.search_events,
               hintStyle: Theme.of(context).textTheme.bodyLarge,
               suffixIcon: Icon(Icons.search, color: Theme.of(context).cardColor),

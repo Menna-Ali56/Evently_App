@@ -1,7 +1,9 @@
 import 'package:evently_app/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/app_assets.dart';
+import '../../../../../utils/app_assets.dart';
+
+
 
 class EventItemWidget extends StatelessWidget {
   const EventItemWidget({super.key});
