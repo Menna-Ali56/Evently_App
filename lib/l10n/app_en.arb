@@ -33,5 +33,14 @@
  "bookclub": "Book Club",
  "meeting": "Meeting",
  "exhibition": "Exhibition",
- "search_events": "Search For Events"
+ "search_events": "Search For Events",
+ "add_event": "Add Event",
+ "description": "Description",
+ "title": "Title",
+ "event_title": "Event Title",
+ "event_description": "Event Description",
+ "event_date": "Event Date",
+ "event_time": "Event Time",
+ "choose_time": "Choose Time",
+ "choose_date": "Choose Date"
 }

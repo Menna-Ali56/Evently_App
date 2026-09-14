@@ -3,7 +3,9 @@ import 'package:evently_app/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../providers/app_theme_provider.dart';
+import '../../../../../../providers/app_theme_provider.dart';
+
+
 
 class ProfileItemWidget extends StatelessWidget {
 

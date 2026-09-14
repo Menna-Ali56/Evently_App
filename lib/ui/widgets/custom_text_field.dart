@@ -1,6 +1,7 @@
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-
+typedef OnChanged = void Function(String)?;
+typedef onValidator=String? Function(String?)?;
 class CustomTextField extends StatelessWidget {
   final double? radius;
   final Color borderColor;
@@ -12,12 +13,17 @@ class CustomTextField extends StatelessWidget {
   final TextStyle? labelStyle;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
-  const CustomTextField({super.key, this.radius, required this.borderColor, this.filled, this.fillColor,  this.hintText,  this.labelText, this.hintStyle, this.labelStyle, this.prefixIcon, this.suffixIcon});
+  final int? maxLines;
+  final TextEditingController? controller;
+  final OnChanged onChanged;
+  final onValidator validator;
+  const CustomTextField({super.key, this.radius, required this.borderColor, this.filled, this.fillColor,  this.hintText,  this.labelText, this.hintStyle, this.labelStyle, this.prefixIcon, this.maxLines=1, this.suffixIcon, this.controller, this.onChanged, this.validator});
 
   @override
   Widget build(BuildContext context) {
 
     return TextFormField(
+
       decoration: InputDecoration(
         enabledBorder: _builtDecorationBorder(radius: radius ?? 16, borderColor: borderColor),
         focusedBorder: _builtDecorationBorder(radius: radius ?? 16, borderColor: borderColor),
@@ -32,6 +38,10 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
       ),
+      maxLines: maxLines,
+      controller: controller,
+      onChanged: onChanged,
+      validator: validator,
     );
   }
   OutlineInputBorder _builtDecorationBorder({required double radius,required Color borderColor}){

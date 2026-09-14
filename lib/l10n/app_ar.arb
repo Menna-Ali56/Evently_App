@@ -33,5 +33,14 @@
  "bookclub": "نادي الكتاب",
  "meeting": "اجتماع",
  "exhibition": "معرض",
- "search_events": "ابحث عن الفعاليات"
+ "search_events": "ابحث عن الفعاليات",
+ "add_event": "إضافة فعالية",
+ "description": "الوصف",
+ "title": "العنوان",
+ "event_title": "عنوان الفعالية",
+ "event_description": "وصف الفعالية",
+ "event_date": "تاريخ الفعالية",
+ "event_time": "وقت الفعالية",
+ "choose_time": "اختر الوقت",
+ "choose_date": "اختر التاريخ"
 }

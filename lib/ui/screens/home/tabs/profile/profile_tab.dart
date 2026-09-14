@@ -1,6 +1,7 @@
-import 'package:evently_app/home/tabs/profile/widgets/profile_item.dart';
+
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/providers/app_theme_provider.dart';
+import 'package:evently_app/ui/screens/home/tabs/profile/widgets/profile_item.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:evently_app/utils/size_utils.dart';
