@@ -69,7 +69,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dont_have_an_account => 'ليس لديك حساب؟';
 
   @override
-  String get create_your_account => 'Create Your Account';
+  String get create_your_account => 'إنشاء حسابك';
 
   @override
   String get register => 'تسجيل';
@@ -84,11 +84,29 @@ class AppLocalizationsAr extends AppLocalizations {
   String get already_have_an_account => 'هل لديك حساب؟';
 
   @override
-  String get welcome_back => 'مرحبًا بعودتك';
+  String get welcome_back => 'مرحبًا بعودتك ✨';
 
   @override
   String get welcome => 'مرحبًا';
 
   @override
   String get search => 'بحث';
+
+  @override
+  String get all => 'الكل';
+
+  @override
+  String get sport => 'رياضة';
+
+  @override
+  String get birthday => 'عيد ميلاد';
+
+  @override
+  String get bookclub => 'نادي الكتاب';
+
+  @override
+  String get meeting => 'اجتماع';
+
+  @override
+  String get exhibition => 'معرض';
 }

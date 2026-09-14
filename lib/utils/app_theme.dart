@@ -22,6 +22,7 @@ class AppTheme {
     cardColor: AppColors.mainLightColor,
 
     dividerColor: AppColors.strokeWhiteColor,
+    highlightColor: AppColors.whiteColor,
 
     textTheme: TextTheme(
       headlineLarge: AppStyles.semi20Black,
@@ -60,6 +61,7 @@ class AppTheme {
     cardColor: AppColors.mainDarkColor,
 
     dividerColor: AppColors.mainLightColor,
+    highlightColor: AppColors.darkInputColor,
 
     textTheme: TextTheme(
       headlineLarge: AppStyles.semi20white,
