@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549196747541",
+    "project_id": "evently-app-f2c7a",
+    "storage_bucket": "evently-app-f2c7a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549196747541:android:07bc18fc7c749bd429cf1c",
+        "android_client_info": {
+          "package_name": "com.example.evently_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbProf2kx7ADv4aiptFLEQvmrwwB1fBhs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
