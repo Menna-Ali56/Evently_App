@@ -17,7 +17,13 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final OnChanged onChanged;
   final onValidator validator;
-  const CustomTextField({super.key, this.radius, required this.borderColor, this.filled, this.fillColor,  this.hintText,  this.labelText, this.hintStyle, this.labelStyle, this.prefixIcon, this.maxLines=1, this.suffixIcon, this.controller, this.onChanged, this.validator});
+  final TextInputType? KeyboardType;
+  final bool obscureText;
+  const CustomTextField({super.key, this.radius, required this.borderColor,
+    this.filled, this.fillColor,  this.hintText,  this.labelText,
+    this.hintStyle, this.labelStyle, this.prefixIcon,
+    this.maxLines=1, this.suffixIcon, this.controller,
+    this.onChanged, this.validator, this.KeyboardType=TextInputType.text, this.obscureText=false});
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +48,9 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       validator: validator,
+      keyboardType: KeyboardType ,
+      obscureText: obscureText,
+      obscuringCharacter: '*',
     );
   }
   OutlineInputBorder _builtDecorationBorder({required double radius,required Color borderColor}){
