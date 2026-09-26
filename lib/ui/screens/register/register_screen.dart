@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_routes.dart';
-import '../../../utils/dialog.utils.dart';
+import '../../../utils/dialog_utils.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
 
