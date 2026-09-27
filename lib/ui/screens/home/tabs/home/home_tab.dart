@@ -1,6 +1,7 @@
 
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
+import 'package:evently_app/providers/user_provider.dart';
 import 'package:evently_app/ui/screens/home/tabs/home/tab_item_widget.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:evently_app/utils/size_utils.dart';
@@ -27,6 +28,7 @@ int selectedIndex=0;
   Widget build(BuildContext context) {
     var width = context.width;
     var height = context.height;
+    var userProvider=Provider.of<UserProvider>(context);
     var themeProvider = Provider.of<AppThemeProvider>(context);
     var languageProvider = Provider.of<AppLanguageProvider>(context);
     List<String> eventsNameList=[
@@ -58,7 +60,7 @@ AppLocalizations.of(context)!.exhibition
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Text(
-                        'Route Academy',
+                        userProvider.currentUser!.name,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ],

@@ -1,6 +1,7 @@
 
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/providers/app_theme_provider.dart';
+import 'package:evently_app/providers/user_provider.dart';
 import 'package:evently_app/ui/screens/home/tabs/profile/widgets/profile_item.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:evently_app/utils/app_colors.dart';
@@ -23,6 +24,7 @@ class _ProfileTabState extends State<ProfileTab> {
     var width = context.width;
     var height = context.height;
     var themeProvider = Provider.of<AppThemeProvider>(context);
+    var userProvider = Provider.of<UserProvider>(context);
 
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -39,9 +41,9 @@ class _ProfileTabState extends State<ProfileTab> {
               radius: 50,
               backgroundImage: AssetImage(AppAssets.logoRouteImage),
             ),
-            Text("Menna Ali", style: Theme.of(context).textTheme.headlineLarge),
+            Text(userProvider.currentUser!.name, style: Theme.of(context).textTheme.headlineLarge),
             Text(
-              "Route@gmail.com",
+              userProvider.currentUser!.email,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             ProfileItemWidget(
