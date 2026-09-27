@@ -1,5 +1,7 @@
+import 'package:evently_app/fire_base_utils.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/providers/app_theme_provider.dart';
+import 'package:evently_app/providers/user_provider.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:evently_app/utils/size_utils.dart';
@@ -220,17 +222,29 @@ class _LoginScreenState extends State<LoginScreen> {
      if (formKey.currentState!.validate() == true) {
 
        try {
-         //todo: show loadding
+         //todo:1- show loadding
          DialogUtils.showLoading(context: context, loadingText: 'Loading....');
+
+         //todo:2-login Firebase Auth
          final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
              email: emailController.text,
              password: passwordController.text,
          );
 
-         //todo: hide loading
+         //todo:3-read user from FireStore
+          var user = await FireBaseUtils.readUserFromFireStore(credential.user?.uid??'');
+          if (user == null){
+            return;
+          }
+
+         //todo :4- save user in provider
+         var userProviser=Provider.of<UserProvider>(context,listen: false);
+         userProviser.updateUser(user);
+
+         //todo: 5-hide loading
          DialogUtils.hideLoadong(context: context);
 
-         // todo: show message
+         // todo: 6-show message
          DialogUtils.showMessage(context: context,
              message: 'Login Successfully.',
            title: 'Success',posActionName: 'OK',posAction: (){
