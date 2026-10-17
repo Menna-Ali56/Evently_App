@@ -1,4 +1,5 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evently_app/utils/fire_base_utils.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
@@ -26,12 +27,12 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
 int selectedIndex=0;
 List<Event> eventsList=[];
-
+Stream<List<Event>>? eventsStream;
 @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getAllEvents();
+     eventsStream=getAllEvents();
   }
 
 
@@ -122,22 +123,63 @@ AppLocalizations.of(context)!.exhibition
                     eventName: eventName,
                   )
               ]),
-              Expanded(
-                  child:
-                      eventsList.isEmpty?
-                          Center(child: Text(AppLocalizations.of(context)!.no_events_found,
-                          style: Theme.of(context).textTheme.headlineMedium,),)
-:
 
-                  ListView.separated(
-                  itemBuilder: (context, index) {
-                    return EventItemWidget(event: eventsList[index],);
+
+              Expanded(
+                child: StreamBuilder<List<Event>>(
+                  stream: eventsStream,
+                  builder: (context, snapshot) {
+                    // 1. Loading
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(
+                          color: AppColors.mainLightColor,
+                        ),
+                      );
+                    }
+
+                    // 2. Error
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text(
+                          'Something went wrong: ${snapshot.error}',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                      );
+                    }
+
+                    // 3. No data
+                    if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                      return Center(
+                        child: Text(
+                          AppLocalizations.of(context)!.no_events_found,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                      );
+                    }
+
+                    // 4. Display events
+                    final eventsList = snapshot.data!;
+
+                    return ListView.separated(
+                      itemBuilder: (context, index) {
+                        return EventItemWidget(
+                          event: eventsList[index],
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return SizedBox(
+                          height: height * 0.02,
+                        );
+                      },
+                      itemCount: eventsList.length,
+                    );
                   },
-                  separatorBuilder: (context,index){
-                    return SizedBox(height: height*0.02,);
-                  },
-                  itemCount: eventsList.length
-              ))
+                ),
+              ),
+
+
             ],
           ),
         ),
@@ -145,6 +187,7 @@ AppLocalizations.of(context)!.exhibition
     );
 
   }
+  //On Time Read
   // void getAllEvents()async{
   //   var querySnapShot=await FireBaseUtils.getEventCollection().get();
   //   // todo: List<QueryDocumentSnapShot<Event>>==> List<Event>
@@ -156,25 +199,39 @@ AppLocalizations.of(context)!.exhibition
   //
   //   });
   // }
-Future<void> getAllEvents() async {
-  try {
-    var querySnapshot =
-    await FireBaseUtils.getEventCollection().get();
 
-    print("🔥 EVENTS COUNT = ${querySnapshot.docs.length}");
+Stream <List<Event>>getAllEvents(){
+  Stream<QuerySnapshot<Event>> stream= FireBaseUtils.getEventCollection().snapshots();
+  // todo: List<QueryDocumentSnapShot<Event>>==> List<Event>
+  return stream.map((querySnapshot){
+     return querySnapshot.docs.map((doc){
+       return doc.data();
 
-    eventsList = querySnapshot.docs.map((doc) {
-      print("🔥 EVENT DATA = ${doc.data()}");
-      return doc.data();
-    }).toList();
-
-    print("🔥 LIST LENGTH = ${eventsList.length}");
-
-    if (mounted) {
-      setState(() {});
-    }
-  } catch (e) {
-    print("❌ ERROR = $e");
-  }
+     }).toList();
+   });
 }
+  //Real Time read
+// Future<void> getAllEvents() async {
+//   try {
+//     var querySnapshot =
+//     await FireBaseUtils.getEventCollection().get();
+//
+//     print("🔥 EVENTS COUNT = ${querySnapshot.docs.length}");
+//
+//     eventsList = querySnapshot.docs.map((doc) {
+//       print("🔥 EVENT DATA = ${doc.data()}");
+//       return doc.data();
+//     }).toList();
+//
+//     print("🔥 LIST LENGTH = ${eventsList.length}");
+//
+//     if (mounted) {
+//       setState(() {});
+//     }
+//   } catch (e) {
+//     print("❌ ERROR = $e");
+//   }
+// }
 }
+
+
