@@ -6,9 +6,11 @@ import 'package:evently_app/ui/screens/home/tabs/profile/widgets/profile_item.da
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:evently_app/utils/size_utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../utils/app_routes.dart';
 import 'language_bottom_Sheet.dart';
 
 class ProfileTab extends StatefulWidget {
@@ -85,7 +87,11 @@ class _ProfileTabState extends State<ProfileTab> {
             ProfileItemWidget(
               text: AppLocalizations.of(context)!.logout,
               item: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  //todo: navigate To login
+                  //FirebaseAuth.instance.signOut();
+                  Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.loginRouteName, (route) => false);
+                },
                 icon: Icon(Icons.logout, size: 25, color: AppColors.redColor),
               ),
             ),

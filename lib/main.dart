@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/providers/app_theme_provider.dart';
 import 'package:evently_app/providers/user_provider.dart';
@@ -19,6 +21,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+
+
+
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (BuildContext context) => AppLanguageProvider()),
