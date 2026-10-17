@@ -1,12 +1,15 @@
 import 'package:evently_app/utils/size_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../../../../model/event.dart';
 import '../../../../../utils/app_assets.dart';
 
 
 
 class EventItemWidget extends StatelessWidget {
-  const EventItemWidget({super.key});
+  final Event event;
+  const EventItemWidget({super.key,required this.event});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class EventItemWidget extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.fill,
               image: AssetImage(
-                  AppAssets.birthdayLightImage))
+                  event.eventImage))
       ),
       child:Column(
         mainAxisAlignment: .spaceBetween,
@@ -47,7 +50,7 @@ class EventItemWidget extends StatelessWidget {
                 color: Theme.of(context).dividerColor
               )
             ),
-            child: Text("21 Jan",style: Theme.of(context).textTheme.bodyMedium,),
+            child: Text(DateFormat('dd MMM').format(event.eventDate).toString(),style: Theme.of(context).textTheme.bodyMedium,),
           ),
           Container(
             padding:EdgeInsets.symmetric(
@@ -65,7 +68,7 @@ class EventItemWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: .spaceBetween,
               children: [
-                Text("This is a Birthday Party ",style: Theme.of(context).textTheme.bodySmall,),
+                Expanded(child: Text(event.eventTitle,style: Theme.of(context).textTheme.bodySmall,)),
                 Spacer(),
                IconButton(onPressed: (){
                  // todo:Add favorite event

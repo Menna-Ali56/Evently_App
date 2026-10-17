@@ -42,5 +42,6 @@
  "event_date": "Event Date",
  "event_time": "Event Time",
  "choose_time": "Choose Time",
- "choose_date": "Choose Date"
+ "choose_date": "Choose Date",
+ "no_events_found": "No Events Found"
 }

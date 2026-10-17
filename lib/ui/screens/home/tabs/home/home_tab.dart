@@ -1,4 +1,5 @@
 
+import 'package:evently_app/utils/fire_base_utils.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/providers/app_language_provider.dart';
 import 'package:evently_app/providers/user_provider.dart';
@@ -8,6 +9,7 @@ import 'package:evently_app/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../model/event.dart';
 import '../../../../../providers/app_theme_provider.dart';
 import '../../../../../utils/app_colors.dart' show AppColors;
 import 'event_item_widget.dart';
@@ -23,6 +25,15 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
 int selectedIndex=0;
+List<Event> eventsList=[];
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getAllEvents();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -111,19 +122,59 @@ AppLocalizations.of(context)!.exhibition
                     eventName: eventName,
                   )
               ]),
-              Expanded(child: ListView.separated(
+              Expanded(
+                  child:
+                      eventsList.isEmpty?
+                          Center(child: Text(AppLocalizations.of(context)!.no_events_found,
+                          style: Theme.of(context).textTheme.headlineMedium,),)
+:
+
+                  ListView.separated(
                   itemBuilder: (context, index) {
-                    return EventItemWidget();
+                    return EventItemWidget(event: eventsList[index],);
                   },
                   separatorBuilder: (context,index){
                     return SizedBox(height: height*0.02,);
                   },
-                  itemCount: 20
+                  itemCount: eventsList.length
               ))
             ],
           ),
         ),
       ),
     );
+
   }
+  // void getAllEvents()async{
+  //   var querySnapShot=await FireBaseUtils.getEventCollection().get();
+  //   // todo: List<QueryDocumentSnapShot<Event>>==> List<Event>
+  //   eventsList= querySnapShot.docs.map((doc){
+  //
+  //     return doc.data();
+  //   }).toList();
+  //   setState(() {
+  //
+  //   });
+  // }
+Future<void> getAllEvents() async {
+  try {
+    var querySnapshot =
+    await FireBaseUtils.getEventCollection().get();
+
+    print("🔥 EVENTS COUNT = ${querySnapshot.docs.length}");
+
+    eventsList = querySnapshot.docs.map((doc) {
+      print("🔥 EVENT DATA = ${doc.data()}");
+      return doc.data();
+    }).toList();
+
+    print("🔥 LIST LENGTH = ${eventsList.length}");
+
+    if (mounted) {
+      setState(() {});
+    }
+  } catch (e) {
+    print("❌ ERROR = $e");
+  }
+}
 }

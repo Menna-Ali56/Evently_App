@@ -33,15 +33,15 @@ class FavoriteTab extends StatelessWidget {
 
             ),
 
-            Expanded(child: ListView.separated(
-                itemBuilder: (context, index) {
-                  return EventItemWidget();
-                },
-                separatorBuilder: (context,index){
-                  return SizedBox(height: height*0.02,);
-                },
-                itemCount: 20
-            ))
+            // Expanded(child: ListView.separated(
+            //     itemBuilder: (context, index) {
+            //       return EventItemWidget(event.);
+            //     },
+            //     separatorBuilder: (context,index){
+            //       return SizedBox(height: height*0.02,);
+            //     },
+            //     itemCount: 20
+            // ))
           ],
         ),
       ),

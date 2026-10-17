@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evently_app/model/my_user.dart';
 
+import '../model/event.dart';
+
 class FireBaseUtils {
   static CollectionReference<MyUser> getUsersCollections(){
   return FirebaseFirestore.instance.collection(MyUser.collectionName)
@@ -12,7 +14,16 @@ class FireBaseUtils {
   );
 
   }
+  static CollectionReference<Event> getEventCollection(){
+    return FirebaseFirestore.instance.collection(Event.collectionName)
+        .withConverter<Event>(
 
+      fromFirestore: ((snapshot, options) =>Event.fromFireStore(snapshot.data()!) ),
+
+      toFirestore: (event, options) => event.toFireStore(),
+    );
+
+  }
   static Future<void> addUserInFireStore(MyUser myUser){
 
     // todo:1-collection
@@ -36,4 +47,17 @@ class FireBaseUtils {
         .doc(uId).get();
     return querySnapshot.data();
   }
+
+static Future<void>  addEventInFireStore(Event event){
+  // todo:1-collection
+  CollectionReference<Event> collectionRef=getEventCollection();
+  //todo:2-document
+  DocumentReference<Event> docRef=collectionRef.doc();
+  //todo:3- auto id
+
+    event.eventId=docRef.id;
+//todo: save data
+return docRef.set(event);
+
+}
 }
