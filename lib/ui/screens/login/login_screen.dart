@@ -1,4 +1,4 @@
-import 'package:evently_app/fire_base_utils.dart';
+import 'package:evently_app/utils/fire_base_utils.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/providers/app_theme_provider.dart';
 import 'package:evently_app/providers/user_provider.dart';

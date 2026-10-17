@@ -139,4 +139,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get choose_date => 'اختر التاريخ';
+
+  @override
+  String get no_events_found => 'لا يوجد فعاليات ';
 }
